@@ -1,0 +1,612 @@
+@import '../../node_modules/mescroll.js/mescroll.css';
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+input,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font-style: normal;
+    list-style: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 367886 */
+    src: url('https://at.alicdn.com/t/font_367886_rnouxn8li2t3ayvi.eot');
+    src: url('https://at.alicdn.com/t/font_367886_rnouxn8li2t3ayvi.eot?#iefix') format('embedded-opentype'),
+    url('https://at.alicdn.com/t/font_367886_rnouxn8li2t3ayvi.woff') format('woff'),
+    url('https://at.alicdn.com/t/font_367886_rnouxn8li2t3ayvi.ttf') format('truetype'),
+    url('https://at.alicdn.com/t/font_367886_rnouxn8li2t3ayvi.svg#iconfont') format('svg');
+  }
+/*@font-face {
+font-family: 'iconfont';  /* project id 370235 
+src: url('//at.alicdn.com/t/font_h89l5myfkf3zbyb9.eot');
+src: url('//at.alicdn.com/t/font_h89l5myfkf3zbyb9.eot?#iefix') format('embedded-opentype'),
+url('//at.alicdn.com/t/font_h89l5myfkf3zbyb9.woff') format('woff'),
+url('//at.alicdn.com/t/font_h89l5myfkf3zbyb9.ttf') format('truetype'),
+url('//at.alicdn.com/t/font_h89l5myfkf3zbyb9.svg#iconfont') format('svg');
+}*/
+
+.iconfont {
+    font-family: 'iconfont';
+}
+
+#app {
+    overflow: hidden;
+    max-width: 414px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    overflow: hidden;
+    clear: both;
+    display: block;
+}
+/*----------------------Theme------------------------*/
+
+$themeColor:#fece00;
+/****--------created by SecretCastle---------*****/
+/*----------------category_list_wrap-----------------*/
+
+.category_list_wrap {
+    padding: 10px 15px;
+}
+
+.category_list_wrap .list_wrap {
+    position: relative;
+    // margin-bottom: 60px;
+}
+
+.list_item {
+    position: relative;
+    padding: 7px;
+    border-bottom: 1px solid #ccc;
+}
+
+.list_item::after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+.list_item .album_pic {
+    width: 75px;
+    height: 75px;
+    float: left;
+    text-align: center;
+    color: #fece00;
+    border:1px solid #fece00;
+    line-height: 75px;
+}
+
+.list_item .album_pic img {
+    width: 100%;
+}
+
+.list_item .album_titles {
+    width: 70%;
+    margin-left: 80px;
+    display: block;
+    margin-right: 20px;
+}
+
+.list_item .album_titles span {
+    display: block;
+}
+
+.list_item .album_titles span:first-child {
+    font-size: 16px;
+    margin-bottom: 16px;
+    line-height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list_item .album_titles span:last-child {
+    font-size: 12px;
+    color: #666;
+}
+
+.list_item .right_arrow {
+    width: 20px;
+    float: right;
+    text-align: left;
+    font-size: 16px;
+    line-height: 75px;
+}
+/*----------------PlayBoard------------------*/
+
+.play_board_wrap {
+    position: relative;
+}
+
+.play_music_title {
+    position: relative;
+    text-align: center;
+    padding-top: 1.28rem;
+    line-height: 1.28rem;
+    font-size: 0.53rem;
+}
+
+.play_pic {
+    width: 5.3rem;
+    height: 5.3rem;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin: 0.4rem auto;
+    position: relative;
+}
+
+.play_pic img {
+    width: 5.3rem;
+    height: 5.3rem;
+    border-radius: 50%;
+}
+
+.play_info {
+    width: 8rem;
+    margin: 0.54rem auto 0;
+    text-align: center;
+    color: #666;
+    font-size: 0.42rem;
+}
+
+.play_info div:last-child {
+    text-align: left;
+}
+
+.play_state {
+    position: relative;
+}
+
+.play_state::after {
+    display: block;
+    content: '';
+    visibility: hidden;
+    clear: both;
+    height: 0;
+}
+
+.play_state span {
+    display: block;
+    position: absolute;
+    top: -0.213rem;
+    color: #666;
+    font-size: 0.427rem;
+}
+
+.play_state span.toLeft {
+    left: 0.27rem;
+}
+
+.play_state span.toRight {
+    right: 0.27rem;
+}
+
+.play_progress {
+    margin: 2.13rem 1.6rem 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+}
+
+.play_progress .progress_bg {
+    width: 100%;
+    height: 5px;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.play_progress .progress_go {
+    position: absolute;
+    width: 100%;
+    height: 0.13rem;
+    background: #f6cf0f;
+    left: -50%;
+    top: 0;
+    border-radius: 5px;
+}
+
+.controlPanel {
+    position: relative;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 45px 45px 5px 0;
+}
+
+.controlPanel span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    color: #f6cf0f;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 40px;
+}
+
+.controlPanel span:nth-child(2) {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 40px;
+    border: 2px solid #f6cf0f;
+    text-align: center;
+    border-radius: 50%;
+}
+/*---------Search_Area-------*/
+
+.searchbar {
+    position: relative;
+    height: 43px;
+    background: #fece00;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.searchbar .iptArea {
+    position: relative;
+    padding: 3px;
+    width: 85%;
+    box-sizing: border-box;
+}
+
+.searchbar .iptArea input {
+    display: block;
+    width: 100%;
+    height: 30px;
+    outline: none;
+    margin: 5px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    background: none;
+}
+
+.searchbar .schBtn {
+    width: 15%;
+    font-size: 18px;
+    text-align: center;
+    line-height: 46px;
+    color: white;
+}
+
+.searchbar .iptArea input::-webkit-input-placeholder {
+    color: white;
+}
+/*-------------------------*/
+
+.fav_list_wrap {
+    padding: 0.27rem 0.2rem;
+}
+
+.fav_list_wrap .list_wrap {
+    position: relative;
+}
+
+.fav_list_wrap .addFav {
+    width: 6rem;
+    height: 1rem;
+    border: 1px solid #f00;
+    margin: 0.5rem auto 0;
+    border-radius: 30px;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 1rem;
+}
+/****---------------Created by duting--------------****/
+
+.album_pics img {
+    float: left;
+    width: 4.16rem;
+    height: 4.16rem;
+    margin: 0.234rem 0.234rem;
+}
+
+.album_title {
+    float: left;
+    margin-left: 10px;
+}
+
+.album_title span {
+    display: block;
+    font-size: 14px;
+}
+
+.album_title span:first-child {
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.album_title .story {
+    font-size: 0.4rem;
+    color: #ffcc3f;
+    display: inline-block;
+    width: 1.304rem;
+    height: 0.807rem;
+    line-height: 0.807rem;
+    text-align: center;
+    border: 0.026rem solid #ffcc3f;
+    margin: 0.838rem 0.248rem 0.59rem 0.248rem;
+}
+
+.album_title .story_num {
+    font-size: 0.49rem;
+    color: #ffcc3f;
+}
+
+.album_title h6 {
+    font-size: 0.53rem;
+    color: #ffcc3f;
+    width: 165px;
+}
+
+.coll,
+.play {
+    color: #ffcc3f;
+    font-size: 0.8rem;
+    float: left;
+}
+
+.coll {
+    margin: 0.133rem 0.8rem 0 0.993rem;
+}
+
+.play {
+    margin-top: 0.133rem;
+}
+
+.music_btn {
+    /*height: 1.2rem;*/
+}
+
+.music_btn::after {
+    content: "";
+    overflow: hidden;
+    display: block;
+    clear: both;
+    height: 0;
+}
+
+.function {
+    width: 70%;
+    float: right;
+    /*height: 100%*/
+    /*height: 1.18rem;*/
+    background-color: #f2f2f2;
+    /*margin-left: 2.2rem;*/
+    margin-right: 0.4rem;
+    /*margin-top:0.4rem;*/
+    /*display: none;*/
+}
+
+.function::after {
+    content: "";
+    overflow: hidden;
+    display: block;
+    clear: both;
+    height: 0;
+}
+
+.function li {
+    float: left;
+}
+
+.function li div {
+    font-size: 0.65rem;
+    color: #ffcc3f;
+    margin-top: -0.08rem;
+}
+
+li span:first-child {
+    font-size: 0.7rem;
+    display: block;
+    color: #ffcc3f;
+}
+
+li span:last-child {
+    font-size: 0.3rem;
+    display: block;
+    color: #979797;
+    margin-top: -0.25rem;
+}
+
+.function li:first-child {
+    margin-left: 1.242rem;
+    margin-right: 1.284rem;
+}
+
+.function li:last-child {
+    margin-left: 1.1rem;
+    margin-right: 1rem;
+}
+
+.clear {
+    clear: after;
+}
+
+.music_list {
+    width: 100%;
+}
+
+.music_line {
+    padding: 0.4rem 0.4rem 0 0.4rem;
+}
+/*.music_list>li{
+height: 1.333rem;
+position: relative;
+}*/
+
+.music_pic img {
+    width: 1.552rem;
+    height: 1.552rem;
+    border-radius: 50%;
+    float: left;
+}
+
+.music_title {
+    height: 1.45rem;
+    margin-left: 1.8rem;
+    border-bottom: 1px solid #eee;
+}
+
+.music_title li {
+    margin-top: 0.266rem;
+    /*margin-left:0.35rem;*/
+    font-size: 0.4rem;
+}
+
+.music_title ul li:last-child {
+    margin-top: 0.12rem;
+    color: #979797;
+}
+
+.seemore {
+    font-size: 0.6rem;
+    float: right;
+    margin-top: 0.4rem;
+}
+
+
+.weui-toast{
+    width: 150px;
+    height: 150px;
+    min-height: 0;
+    margin-left: -75px;
+    font-size: 24px;
+}
+
+.inputArea{
+    height: 30px;
+    padding: 0 10px;
+    border:1px solid #eee;
+    display: none;
+}
+
+.fav_list{
+    padding: 10px;
+    
+}
+
+.fav_list .fav_list_item{
+    display: block;
+    position: relative;
+    padding: 0 5px 0 10px;
+    border-bottom: 1px solid #eee;
+    
+}
+
+.fav_list .fav_list_item .rightSide{
+    width: 20px;
+    float: right;
+    text-align: left;
+    font-size: 16px;
+    line-height: 55px;
+}
+
+.fav_list .fav_list_item .fav_list_item_title{
+    font-size: 16px;
+    margin-right: 20px;
+    height: 55px;
+    line-height: 24px;
+    padding-right: 10px;
+}
+
+.fav_list .fav_list_item::after{
+    content: "";
+    clear: both;
+    overflow: hidden;
+}
